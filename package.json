@@ -1,15 +1,29 @@
 {
-  "name": "md",
-  "version": "0.0.0",
+  "name": "@ouassimsabir/md",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "npm run start:shell",
+    "start:shell": "ng serve shell  -o --port 5000",
+    "start:mfe1": "ng serve mfe1 -o --port 3000",
+    "start:all": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" ",
+    "build:shell": "ng build shell --prod",
+    "build:mfe1": "ng build mfe1 --prod",
+    "serve:dist": "concurrently \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
+    "build": "npm run build:shell && npm run build:mfe1",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "private": true,
+  "repository": {
+    "url": "https://github.com/OuassimSABIR/Md.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
+    "@angular-architects/module-federation": "^14.0.1",
     "@angular/animations": "~13.3.0",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
@@ -18,21 +32,32 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@nrwl/workspace": "^10.3.0",
+    "concurrently": "^5.3.0",
+    "ngx-build-plus": "^13.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "^0.1301.2",
+    "@angular-devkit/build-angular": "~13.3.7",
     "@angular/cli": "~13.3.7",
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
+    "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "protractor": "~7.0.0",
+    "serve": "^11.3.2",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
     "typescript": "~4.6.2"
   }
 }

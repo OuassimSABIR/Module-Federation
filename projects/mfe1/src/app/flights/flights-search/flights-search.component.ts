@@ -14,16 +14,17 @@ export class FlightsSearchComponent {
     @Inject(ComponentFactoryResolver) private cfr) { }
 
   search(): void {
-    alert('Not implemented for this demo!');
+    alert("Pas besoin d'etre implementer!");
   }
 
   terms(): void {
-    import('../lazy/lazy.component')
+    /*import('../lazy/lazy.component')
       .then(m => m.LazyComponent)
       .then(comp => {
         const factory = this.cfr.resolveComponentFactory(comp);
         this.viewContainer.createComponent(factory, null, this.injector);
-      });
+      });*/
 
+      alert("Pas besoin d'etre implementer!");
   }
 }

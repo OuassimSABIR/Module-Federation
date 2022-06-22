@@ -37,6 +37,7 @@ module.exports = {
         
         // For hosts (please adjust)
         remotes: {
+          // Peut ajouter les remotes ici 
         },
 
         shared: share({
